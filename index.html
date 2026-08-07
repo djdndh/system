@@ -45,19 +45,39 @@
             letter-spacing: 2px;
         }
 
+        /* زر تحميل الموقع نفسه */
+        .install-app-btn {
+            background: linear-gradient(135deg, #00ff66, #009933);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+            transition: 0.3s;
+        }
+
+        .install-app-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 25px #00ff66;
+            transform: scale(1.05);
+        }
+
         /* الصفحة الرئيسية */
         .main-container {
             text-align: center;
-            padding: 50px 20px;
+            padding: 40px 20px;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .hero-img-container {
             position: relative;
-            width: 230px;
-            height: 230px;
-            margin: 0 auto 25px auto;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px auto;
         }
 
         .hero-img {
@@ -70,15 +90,10 @@
             transition: 0.4s;
         }
 
-        .hero-img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 45px rgba(0, 255, 102, 0.7);
-        }
-
         h1 {
             font-size: 32px;
             color: #00ff66;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             text-shadow: 0 0 10px rgba(0,255,102,0.4);
             font-weight: 700;
         }
@@ -195,23 +210,38 @@
             opacity: 0.9;
         }
 
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+
         .download-btn {
             background: linear-gradient(135deg, #00ff66, #00cc52);
             color: #000;
-            padding: 11px 24px;
+            padding: 10px 18px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 900;
-            font-size: 15px;
+            font-size: 14px;
             transition: 0.2s;
             box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
         }
 
-        .download-btn:hover {
-            background: #fff;
-            color: #000;
-            box-shadow: 0 0 20px #00ff66;
+        .open-btn {
+            background: #222;
+            color: #00ff66;
+            border: 1px solid #00ff66;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .download-btn:hover, .open-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 15px #00ff66;
         }
 
         .back-btn {
@@ -238,7 +268,7 @@
         @media (max-width: 600px) {
             header { padding: 15px 20px; }
             .hack-item { flex-direction: column; align-items: flex-start; gap: 15px; }
-            .download-btn { width: 100%; text-align: center; }
+            .action-btns { width: 100%; justify-content: space-between; }
         }
     </style>
 </head>
@@ -246,13 +276,14 @@
 
     <header>
         <div class="logo">MARS SYSTEM</div>
+        <!-- زر تحميل وتثبيت الموقع كتطبيق -->
+        <button class="install-app-btn" onclick="installAppMsg()">📥 تحميل الموقع كتطبيق</button>
     </header>
 
     <!-- الصفحة الرئيسية -->
     <div id="home-page" class="main-container">
         <div class="hero-img-container">
-            <!-- حط رابط صورتك الخضراء هنا بدل النص أو اسم الصورة إذا كانت بنفس المجلد مثلاً hacker.png -->
-            <img src="hacker.png" alt="Hacker Logo" class="hero-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'230\' height=\'230\'><rect width=\'100%\' height=\'100%\' fill=\'%23051a05\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff66\' font-size=\'18\'>الصورة الخضراء</text></svg>';">
+            <img src="hacker.png" alt="Hacker Logo" class="hero-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23051a05\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff66\' font-size=\'16\'>MARS SYSTEM</text></svg>';">
         </div>
         <h1>مركز التحميل السريع والآمن</h1>
 
@@ -286,7 +317,10 @@
                 <h4>دلتا (Delta Executor - iOS)</h4>
                 <span>نسخة آيفون مستقرة تدعم السكربتات القوية</span>
             </div>
-            <a href="رابط_تحميل_دلتا_آيفون" class="download-btn" target="_blank">تحميل</a>
+            <div class="action-btns">
+                <a href="https://delta.bz" class="download-btn" target="_blank">تحميل</a>
+                <a href="delta://" class="open-btn">فتح التطبيق</a>
+            </div>
         </div>
 
         <div class="hack-item">
@@ -294,7 +328,10 @@
                 <h4>hydrogen iOS</h4>
                 <span>منصة تنفيذ سكربتات سريعة وبدون مشاكل</span>
             </div>
-            <a href="رابط_تحميل_هايدروجين" class="download-btn" target="_blank">تحميل</a>
+            <div class="action-btns">
+                <a href="https://hydrogen.sh" class="download-btn" target="_blank">تحميل</a>
+                <a href="hydrogen://" class="open-btn">فتح التطبيق</a>
+            </div>
         </div>
     </div>
 
@@ -308,7 +345,10 @@
                 <h4>دلتا أندرويد (Delta Android)</h4>
                 <span>النسخة الأصلية المحدثة لتشغيل جميع السكربتات</span>
             </div>
-            <a href="رابط_تحميل_دلتا_اندرويد" class="download-btn" target="_blank">تحميل</a>
+            <div class="action-btns">
+                <a href="https://delta.bz" class="download-btn" target="_blank">تحميل</a>
+                <a href="delta://" class="open-btn">فتح التطبيق</a>
+            </div>
         </div>
 
         <div class="hack-item">
@@ -316,7 +356,10 @@
                 <h4>روبلوكس القديمة (بيكورا)</h4>
                 <span>نسخة كلاسيكية بمميزات حصرية</span>
             </div>
-            <a href="رابط_تحميل_بيكورا" class="download-btn" target="_blank">تحميل</a>
+            <div class="action-btns">
+                <a href="https://rbx.gq" class="download-btn" target="_blank">تحميل</a>
+                <a href="roblox://" class="open-btn">فتح التطبيق</a>
+            </div>
         </div>
     </div>
 
@@ -330,7 +373,9 @@
                 <h4>Fluxus / Hydrogen PC</h4>
                 <span>أفضل محركات تنفيذ السكربتات للكمبيوتر</span>
             </div>
-            <a href="رابط_تحميل_بي_سي" class="download-btn" target="_blank">تحميل</a>
+            <div class="action-btns">
+                <a href="https://fluxteam.net" class="download-btn" target="_blank">تحميل</a>
+            </div>
         </div>
     </div>
 
@@ -343,7 +388,9 @@
                 <h4>مانع الحظر الشامل</h4>
                 <span>أداة لحماية حسابك الرئيسي أثناء اللعب</span>
             </div>
-            <a href="رابط_الحماية" class="download-btn" target="_blank">تحميل</a>
+            <div class="action-btns">
+                <a href="https://github.com" class="download-btn" target="_blank">تحميل</a>
+            </div>
         </div>
     </div>
 
@@ -357,6 +404,10 @@
 
             document.getElementById(pageId).style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function installAppMsg() {
+            alert("لتثبيت الموقع كتطبيق على جهازك:\n- إذا كنت تستخدم آيفون (Safari): اضغط على خيار 'مشاركة' ثم 'إضافة إلى الصفحة الرئيسية'.\n- إذا كنت تستخدم أندرويد (Chrome): اضغط على الثلاث نقاط ثم 'إضافة إلى الشاشة الرئيسية'.");
         }
     </script>
 
