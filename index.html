@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARS SYSTEM - مركز التحميل الرسمي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #030803;
+            color: #fff;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(0, 255, 102, 0.08) 0%, transparent 60%),
+                linear-gradient(rgba(0, 255, 102, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 102, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+        }
+
+        /* الهيدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(2, 12, 5, 0.9);
+            border-bottom: 2px solid #00ff66;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            color: #00ff66;
+            text-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+            letter-spacing: 2px;
+        }
+
+        /* الصفحة الرئيسية */
+        .main-container {
+            text-align: center;
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 230px;
+            height: 230px;
+            margin: 0 auto 25px auto;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            object-fit: cover;
+            border: 3px solid #00ff66;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.4);
+            transition: 0.4s;
+        }
+
+        .hero-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 45px rgba(0, 255, 102, 0.7);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #00ff66;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0,255,102,0.4);
+            font-weight: 700;
+        }
+
+        /* الأقسام الأربعة */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(0, 25, 10, 0.8), rgba(0, 10, 5, 0.9));
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            border-radius: 18px;
+            padding: 35px 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #00ff66;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            background: linear-gradient(145deg, rgba(0, 40, 15, 0.9), rgba(0, 20, 8, 0.95));
+            transform: translateY(-8px);
+            border-color: #00ff66;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.3);
+        }
+
+        .card h3 {
+            color: #00ff66;
+            margin-bottom: 12px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #b0c4b1;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* صفحات الهاكات الفرعية */
+        .sub-page {
+            display: none;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(2, 15, 5, 0.95);
+            border: 1px solid #00ff66;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sub-page h2 {
+            color: #00ff66;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 26px;
+            text-shadow: 0 0 10px rgba(0,255,102,0.3);
+        }
+
+        .hack-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 30, 10, 0.6);
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 102, 0.25);
+            transition: 0.2s;
+        }
+
+        .hack-item:hover {
+            border-color: #00ff66;
+            background: rgba(0, 45, 15, 0.7);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+        }
+
+        .hack-info h4 {
+            color: #fff;
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .hack-info span {
+            color: #00ff66;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #00ff66, #00cc52);
+            color: #000;
+            padding: 11px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 15px;
+            transition: 0.2s;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+        }
+
+        .download-btn:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 20px #00ff66;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            background: transparent;
+            color: #00ff66;
+            border: 1px solid #00ff66;
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 102, 0.15);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 15px 20px; }
+            .hack-item { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .download-btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MARS SYSTEM</div>
+    </header>
+
+    <!-- الصفحة الرئيسية -->
+    <div id="home-page" class="main-container">
+        <div class="hero-img-container">
+            <!-- حط رابط صورتك الخضراء هنا بدل النص أو اسم الصورة إذا كانت بنفس المجلد مثلاً hacker.png -->
+            <img src="hacker.png" alt="Hacker Logo" class="hero-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'230\' height=\'230\'><rect width=\'100%\' height=\'100%\' fill=\'%23051a05\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff66\' font-size=\'18\'>الصورة الخضراء</text></svg>';">
+        </div>
+        <h1>مركز التحميل السريع والآمن</h1>
+
+        <div class="cards-grid">
+            <div class="card" onclick="showPage('ios-page')">
+                <h3>تطبيقات iOS</h3>
+                <p>هاك روبلوكس + دلتا + أقوى أدوات الآيفون</p>
+            </div>
+            <div class="card" onclick="showPage('android-page')">
+                <h3>تطبيقات Android</h3>
+                <p>دلتا أندرويد + روبلوكس القديمة (بيكورا)</p>
+            </div>
+            <div class="card" onclick="showPage('pc-page')">
+                <h3>تطبيقات PC</h3>
+                <p>أفضل إكسبلورر وهاكات الكمبيوتر المحدثة</p>
+            </div>
+            <div class="card" onclick="showPage('security-page')">
+                <h3>حماية وأمان</h3>
+                <p>أدوات حماية وتخطي الحظر الموثوقة</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة الآيفون (iOS) -->
+    <div id="ios-page" class="sub-page">
+        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
+        <h2>قائمة هاكات الآيفون (iOS)</h2>
+        
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>دلتا (Delta Executor - iOS)</h4>
+                <span>نسخة آيفون مستقرة تدعم السكربتات القوية</span>
+            </div>
+            <a href="رابط_تحميل_دلتا_آيفون" class="download-btn" target="_blank">تحميل</a>
+        </div>
+
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>hydrogen iOS</h4>
+                <span>منصة تنفيذ سكربتات سريعة وبدون مشاكل</span>
+            </div>
+            <a href="رابط_تحميل_هايدروجين" class="download-btn" target="_blank">تحميل</a>
+        </div>
+    </div>
+
+    <!-- صفحة الأندرويد (Android) -->
+    <div id="android-page" class="sub-page">
+        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
+        <h2>قائمة هاكات الأندرويد (Android)</h2>
+        
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>دلتا أندرويد (Delta Android)</h4>
+                <span>النسخة الأصلية المحدثة لتشغيل جميع السكربتات</span>
+            </div>
+            <a href="رابط_تحميل_دلتا_اندرويد" class="download-btn" target="_blank">تحميل</a>
+        </div>
+
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>روبلوكس القديمة (بيكورا)</h4>
+                <span>نسخة كلاسيكية بمميزات حصرية</span>
+            </div>
+            <a href="رابط_تحميل_بيكورا" class="download-btn" target="_blank">تحميل</a>
+        </div>
+    </div>
+
+    <!-- صفحة الكمبيوتر (PC) -->
+    <div id="pc-page" class="sub-page">
+        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
+        <h2>تطبيقات وهاكات الكمبيوتر (PC)</h2>
+        
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>Fluxus / Hydrogen PC</h4>
+                <span>أفضل محركات تنفيذ السكربتات للكمبيوتر</span>
+            </div>
+            <a href="رابط_تحميل_بي_سي" class="download-btn" target="_blank">تحميل</a>
+        </div>
+    </div>
+
+    <!-- صفحة الحماية والأمان -->
+    <div id="security-page" class="sub-page">
+        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
+        <h2>أدوات الحماية والأمان</h2>
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>مانع الحظر الشامل</h4>
+                <span>أداة لحماية حسابك الرئيسي أثناء اللعب</span>
+            </div>
+            <a href="رابط_الحماية" class="download-btn" target="_blank">تحميل</a>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('ios-page').style.display = 'none';
+            document.getElementById('android-page').style.display = 'none';
+            document.getElementById('pc-page').style.display = 'none';
+            document.getElementById('security-page').style.display = 'none';
+
+            document.getElementById(pageId).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
