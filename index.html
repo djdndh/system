@@ -117,7 +117,7 @@
         /* الأقسام */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 25px;
             padding: 0 10px;
         }
@@ -316,11 +316,15 @@
         <div class="cards-grid">
             <div class="card" onclick="showPage('ios-page')">
                 <h3>تطبيقات iOS</h3>
-                <p>دلتا، أرسيوس إكس، وأقوى أدوات الآيفون</p>
+                <p>دلتا، أرسيوس إكس، ريسكيد، وأقوى الأدوات</p>
             </div>
             <div class="card" onclick="showPage('android-page')">
                 <h3>تطبيقات Android</h3>
                 <p>دلتا أندرويد والنسخ المعدلة للتحميل الفوري</p>
+            </div>
+            <div class="card" onclick="showPage('pc-page')">
+                <h3>تطبيقات PC</h3>
+                <p>أفضل المحاكيات وأدوات الكمبيوتر</p>
             </div>
             <div class="card" onclick="showPage('extra-page')">
                 <h3>أدوات وإضافات</h3>
@@ -354,6 +358,16 @@
                 <a href="https://spdmteam.com/neo#downloads" class="download-btn" target="_blank">تحميل مباشر</a>
             </div>
         </div>
+
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>هاك ريسكيد (Hydrogen)</h4>
+                <span>منصة تنفيذ قوية وسريعة للسكربتات</span>
+            </div>
+            <div class="action-btns">
+                <a href="https://hydrogen.sh" class="download-btn" target="_blank">تحميل مباشر</a>
+            </div>
+        </div>
     </div>
 
     <!-- صفحة الأندرويد (Android) -->
@@ -369,6 +383,22 @@
             <div class="action-btns">
                 <a href="https://delta.bz" class="download-btn" target="_blank">تحميل مباشر</a>
                 <a href="delta://" class="open-btn">فتح</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة الكمبيوتر (PC) -->
+    <div id="pc-page" class="sub-page">
+        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
+        <h2>تطبيقات وأدوات الكمبيوتر (PC)</h2>
+        
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>MuMu Player</h4>
+                <span>محاكي قوي وسريع لتشغيل تطبيقات وألعاب الهاتف على البي سي</span>
+            </div>
+            <div class="action-btns">
+                <a href="https://www.mumuplayer.com/" class="download-btn" target="_blank">تحميل مباشر</a>
             </div>
         </div>
     </div>
@@ -394,6 +424,7 @@
             document.getElementById('home-page').style.display = 'none';
             document.getElementById('ios-page').style.display = 'none';
             document.getElementById('android-page').style.display = 'none';
+            document.getElementById('pc-page').style.display = 'none';
             document.getElementById('extra-page').style.display = 'none';
 
             document.getElementById(pageId).style.display = 'block';
