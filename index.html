@@ -172,6 +172,8 @@
             margin-bottom: 18px;
             border-radius: 12px;
             border: 1px solid rgba(0, 255, 102, 0.25);
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .hack-info h4 {
@@ -186,14 +188,20 @@
             opacity: 0.9;
         }
 
+        .action-btns {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
         .download-btn {
             background: linear-gradient(135deg, #00ff66, #00cc52);
             color: #000;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 900;
-            font-size: 14px;
+            font-size: 13px;
             box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
             transition: 0.2s;
             display: inline-block;
@@ -202,6 +210,12 @@
         .download-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px #00ff66;
+        }
+
+        .secondary-btn {
+            background: #222;
+            color: #00ff66;
+            border: 1px solid #00ff66;
         }
 
         .back-btn {
@@ -248,15 +262,15 @@
         <div class="cards-grid">
             <div class="card" onclick="showPage('ios-page')">
                 <h3>تطبيقات iOS</h3>
-                <p>دلتا وأقوى أدوات الآيفون المباشرة</p>
+                <p>دلتا، أرسيوس وأقوى أدوات الآيفون</p>
             </div>
             <div class="card" onclick="showPage('android-page')">
                 <h3>تطبيقات Android</h3>
                 <p>مشغلات وأدوات الأندرويد APK</p>
             </div>
-            <div class="card" onclick="showPage('scripts-page')">
-                <h3>مكتبة السكربتات</h3>
-                <p>أحدث سكربتات Luau الخاصة بـ MARS</p>
+            <div class="card" onclick="showPage('tools-page')">
+                <h3>أدوات عمار</h3>
+                <p>أحدث الأدوات والسكربتات الخاصة بـ MARS</p>
             </div>
         </div>
     </div>
@@ -266,24 +280,26 @@
         <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
         <h2>قائمة هاكات الآيفون (iOS)</h2>
         
+        <!-- دلتا -->
         <div class="hack-item">
             <div class="hack-info">
                 <h4>دلتا (Delta iOS)</h4>
-                <span>تثبيت مباشر عبر رابط IPA المرفوع</span>
+                <span>تثبيت مباشر أو تحميل الملف</span>
             </div>
             <div class="action-btns">
                 <a href="itms-services://?action=download-manifest&url=https://catbox.moe/c/kjr6bv.plist" class="download-btn">تثبيت مباشر</a>
-                <a href="https://files.catbox.moe/kjr6bv.ipa" class="download-btn" style="background:#222; color:#00ff66; border: 1px solid #00ff66; margin-right: 5px;">تحميل IPA</a>
+                <a href="https://files.catbox.moe/kjr6bv.ipa" class="download-btn secondary-btn">تحميل IPA</a>
             </div>
         </div>
         
+        <!-- أرسيوس إكس -->
         <div class="hack-item">
             <div class="hack-info">
-                <h4>آرسيس إكس (Arceus X iOS)</h4>
-                <span>نسخة iOS الرسمية</span>
+                <h4>أرسيوس إكس (Arceus X iOS)</h4>
+                <span>نسخة iOS الرسمية للأيفون</span>
             </div>
             <div class="action-btns">
-                <a href="#" class="download-btn">قريباً</a>
+                <a href="https://spdmteam.com/neo#downloads" target="_blank" class="download-btn">تحميل أرسيوس</a>
             </div>
         </div>
     </div>
@@ -304,18 +320,18 @@
         </div>
     </div>
 
-    <!-- صفحة السكربتات -->
-    <div id="scripts-page" class="sub-page">
+    <!-- صفحة أدوات عمار -->
+    <div id="tools-page" class="sub-page">
         <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
-        <h2>سكربتات MARS SYSTEM</h2>
+        <h2>أدوات عمار - MARS SYSTEM</h2>
         
         <div class="hack-item">
             <div class="hack-info">
                 <h4>MARS SYSTEM PRO - HUB</h4>
-                <span>سكربت الماب والقتال الشامل</span>
+                <span>أداة السكربت الشاملة للقتال والماب</span>
             </div>
             <div class="action-btns">
-                <button class="download-btn" onclick="navigator.clipboard.writeText('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/ammar-mars/scripts/main/mars.lua\'))()'); alert('تم نسخ السكربت!');">نسخ السكربت</button>
+                <button class="download-btn" onclick="navigator.clipboard.writeText('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/ammar-mars/scripts/main/mars.lua\'))()'); alert('تم نسخ الأداة بنجاح!');">نسخ الأداة</button>
             </div>
         </div>
     </div>
@@ -329,7 +345,7 @@
             document.getElementById('home-page').style.display = 'none';
             document.getElementById('ios-page').style.display = 'none';
             document.getElementById('android-page').style.display = 'none';
-            document.getElementById('scripts-page').style.display = 'none';
+            document.getElementById('tools-page').style.display = 'none';
             
             document.getElementById(pageId).style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
