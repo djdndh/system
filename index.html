@@ -196,6 +196,7 @@
             font-size: 14px;
             box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
             transition: 0.2s;
+            display: inline-block;
         }
 
         .download-btn:hover {
@@ -236,6 +237,7 @@
         <button class="install-app-btn" onclick="alert('اضغط على مشاركة في سفاري ثم إضافة إلى الصفحة الرئيسية')">📥 تثبيت الموقع</button>
     </header>
 
+    <!-- الصفحة الرئيسية -->
     <div id="home-page" class="main-container">
         <div class="hero-img-container">
             <img src="ammar.png" alt="Ammar Logo" class="hero-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'220\' height=\'220\'><rect width=\'100%\' height=\'100%\' fill=\'%23051a05\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff66\' font-size=\'16\'>AMMAR</text></svg>';">
@@ -246,11 +248,20 @@
         <div class="cards-grid">
             <div class="card" onclick="showPage('ios-page')">
                 <h3>تطبيقات iOS</h3>
-                <p>دلتا وأقوى الأدوات للآيفون</p>
+                <p>دلتا وأقوى أدوات الآيفون المباشرة</p>
+            </div>
+            <div class="card" onclick="showPage('android-page')">
+                <h3>تطبيقات Android</h3>
+                <p>مشغلات وأدوات الأندرويد APK</p>
+            </div>
+            <div class="card" onclick="showPage('scripts-page')">
+                <h3>مكتبة السكربتات</h3>
+                <p>أحدث سكربتات Luau الخاصة بـ MARS</p>
             </div>
         </div>
     </div>
 
+    <!-- صفحة iOS -->
     <div id="ios-page" class="sub-page">
         <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
         <h2>قائمة هاكات الآيفون (iOS)</h2>
@@ -258,10 +269,53 @@
         <div class="hack-item">
             <div class="hack-info">
                 <h4>دلتا (Delta iOS)</h4>
-                <span>تثبيت مباشر لملفك الشخصي</span>
+                <span>تثبيت مباشر عبر رابط IPA المرفوع</span>
             </div>
             <div class="action-btns">
-                <a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/ammar-mars/delta/main/manifest.plist" class="download-btn">تثبيت مباشر</a>
+                <a href="itms-services://?action=download-manifest&url=https://catbox.moe/c/kjr6bv.plist" class="download-btn">تثبيت مباشر</a>
+                <a href="https://files.catbox.moe/kjr6bv.ipa" class="download-btn" style="background:#222; color:#00ff66; border: 1px solid #00ff66; margin-right: 5px;">تحميل IPA</a>
+            </div>
+        </div>
+        
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>آرسيس إكس (Arceus X iOS)</h4>
+                <span>نسخة iOS الرسمية</span>
+            </div>
+            <div class="action-btns">
+                <a href="#" class="download-btn">قريباً</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة الأندرويد -->
+    <div id="android-page" class="sub-page">
+        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
+        <h2>قائمة هاكات الأندرويد (Android)</h2>
+        
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>Delta APK</h4>
+                <span>النسخة الخاصة بأجهزة الأندرويد</span>
+            </div>
+            <div class="action-btns">
+                <a href="#" class="download-btn">تحميل APK</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة السكربتات -->
+    <div id="scripts-page" class="sub-page">
+        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
+        <h2>سكربتات MARS SYSTEM</h2>
+        
+        <div class="hack-item">
+            <div class="hack-info">
+                <h4>MARS SYSTEM PRO - HUB</h4>
+                <span>سكربت الماب والقتال الشامل</span>
+            </div>
+            <div class="action-btns">
+                <button class="download-btn" onclick="navigator.clipboard.writeText('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/ammar-mars/scripts/main/mars.lua\'))()'); alert('تم نسخ السكربت!');">نسخ السكربت</button>
             </div>
         </div>
     </div>
@@ -274,6 +328,9 @@
         function showPage(pageId) {
             document.getElementById('home-page').style.display = 'none';
             document.getElementById('ios-page').style.display = 'none';
+            document.getElementById('android-page').style.display = 'none';
+            document.getElementById('scripts-page').style.display = 'none';
+            
             document.getElementById(pageId).style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
