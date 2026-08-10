@@ -25,7 +25,6 @@
             background-size: 100% 100%, 30px 30px, 30px 30px;
         }
 
-        /* الهيدر */
         header {
             display: flex;
             justify-content: space-between;
@@ -70,7 +69,6 @@
             transform: scale(1.05);
         }
 
-        /* الصفحة الرئيسية */
         .main-container {
             text-align: center;
             padding: 40px 20px;
@@ -92,12 +90,6 @@
             object-fit: cover;
             border: 3px solid #00ff66;
             box-shadow: 0 0 35px rgba(0, 255, 102, 0.5);
-            transition: 0.4s;
-        }
-
-        .hero-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(0, 255, 102, 0.8);
         }
 
         h1 {
@@ -114,7 +106,6 @@
             margin-bottom: 35px;
         }
 
-        /* الأقسام */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -132,22 +123,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #00ff66;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
         }
 
         .card:hover {
@@ -170,7 +145,6 @@
             line-height: 1.5;
         }
 
-        /* صفحات الهاكات الفرعية */
         .sub-page {
             display: none;
             max-width: 850px;
@@ -180,12 +154,6 @@
             border: 1px solid #00ff66;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .sub-page h2 {
@@ -193,7 +161,6 @@
             margin-bottom: 25px;
             text-align: center;
             font-size: 26px;
-            text-shadow: 0 0 10px rgba(0,255,102,0.3);
         }
 
         .hack-item {
@@ -205,13 +172,6 @@
             margin-bottom: 18px;
             border-radius: 12px;
             border: 1px solid rgba(0, 255, 102, 0.25);
-            transition: 0.2s;
-        }
-
-        .hack-item:hover {
-            border-color: #00ff66;
-            background: rgba(0, 45, 15, 0.7);
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
         }
 
         .hack-info h4 {
@@ -226,11 +186,6 @@
             opacity: 0.9;
         }
 
-        .action-btns {
-            display: flex;
-            gap: 8px;
-        }
-
         .download-btn {
             background: linear-gradient(135deg, #00ff66, #00cc52);
             color: #000;
@@ -239,23 +194,11 @@
             text-decoration: none;
             font-weight: 900;
             font-size: 14px;
-            transition: 0.2s;
             box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
-        }
-
-        .open-btn {
-            background: #222;
-            color: #00ff66;
-            border: 1px solid #00ff66;
-            padding: 10px 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
             transition: 0.2s;
         }
 
-        .download-btn:hover, .open-btn:hover {
+        .download-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px #00ff66;
         }
@@ -273,12 +216,6 @@
             cursor: pointer;
             font-weight: 700;
             font-size: 14px;
-            transition: 0.2s;
-        }
-
-        .back-btn:hover {
-            background: rgba(0, 255, 102, 0.15);
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
         }
 
         footer {
@@ -289,12 +226,6 @@
             margin-top: 50px;
             border-top: 1px solid rgba(0,255,102,0.1);
         }
-
-        @media (max-width: 600px) {
-            header { padding: 15px 20px; flex-direction: column; gap: 10px; }
-            .hack-item { flex-direction: column; align-items: flex-start; gap: 15px; }
-            .action-btns { width: 100%; justify-content: space-between; }
-        }
     </style>
 </head>
 <body>
@@ -302,10 +233,9 @@
     <header>
         <div class="logo">MARS SYSTEM</div>
         <div class="developer-tag">برمجة وتطوير: عمار</div>
-        <button class="install-app-btn" onclick="installAppMsg()">📥 تثبيت الموقع</button>
+        <button class="install-app-btn" onclick="alert('اضغط على مشاركة في سفاري ثم إضافة إلى الصفحة الرئيسية')">📥 تثبيت الموقع</button>
     </header>
 
-    <!-- الصفحة الرئيسية -->
     <div id="home-page" class="main-container">
         <div class="hero-img-container">
             <img src="ammar.png" alt="Ammar Logo" class="hero-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'220\' height=\'220\'><rect width=\'100%\' height=\'100%\' fill=\'%23051a05\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff66\' font-size=\'16\'>AMMAR</text></svg>';">
@@ -316,24 +246,11 @@
         <div class="cards-grid">
             <div class="card" onclick="showPage('ios-page')">
                 <h3>تطبيقات iOS</h3>
-                <p>دلتا، أرسيوس إكس، ريسكيد، وأقوى الأدوات</p>
-            </div>
-            <div class="card" onclick="showPage('android-page')">
-                <h3>تطبيقات Android</h3>
-                <p>دلتا أندرويد والنسخ المعدلة للتحميل الفوري</p>
-            </div>
-            <div class="card" onclick="showPage('pc-page')">
-                <h3>تطبيقات PC</h3>
-                <p>أفضل المحاكيات وأدوات الكمبيوتر</p>
-            </div>
-            <div class="card" onclick="showPage('extra-page')">
-                <h3>أدوات وإضافات</h3>
-                <p>قريباً يتم إضافة المزيد من الهاكات والسكربتات</p>
+                <p>دلتا وأقوى الأدوات للآيفون</p>
             </div>
         </div>
     </div>
 
-    <!-- صفحة الآيفون (iOS) -->
     <div id="ios-page" class="sub-page">
         <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
         <h2>قائمة هاكات الآيفون (iOS)</h2>
@@ -341,98 +258,24 @@
         <div class="hack-item">
             <div class="hack-info">
                 <h4>دلتا (Delta iOS)</h4>
-                <span>تثبيت مباشر وفوري بدون مغادرة الصفحة</span>
+                <span>تثبيت مباشر لملفك الشخصي</span>
             </div>
             <div class="action-btns">
-                <!-- رابط التثبيت الهوائي المباشر لآيفون -->
-                <a href="itms-services://?action=download-manifest&url=https://delta.bz/download.plist" class="download-btn">تثبيت مباشر</a>
-            </div>
-        </div>
-
-        <div class="hack-item">
-            <div class="hack-info">
-                <h4>أرسيوس إكس (Arceus X - iOS)</h4>
-                <span>منصة تنفيذ قوية ومحدثة للآيفون</span>
-            </div>
-            <div class="action-btns">
-                <a href="https://spdmteam.com/neo#downloads" class="download-btn" target="_blank">رابط التحميل</a>
-            </div>
-        </div>
-
-        <div class="hack-item">
-            <div class="hack-info">
-                <h4>هاك ريسكيد (Hydrogen)</h4>
-                <span>منصة تنفيذ قوية وسريعة للسكربتات</span>
-            </div>
-            <div class="action-btns">
-                <a href="https://hydrogen.sh" class="download-btn" target="_blank">رابط التحميل</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- صفحة الأندرويد (Android) -->
-    <div id="android-page" class="sub-page">
-        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
-        <h2>قائمة هاكات الأندرويد (Android)</h2>
-        
-        <div class="hack-item">
-            <div class="hack-info">
-                <h4>دلتا أندرويد (Delta Android)</h4>
-                <span>تحميل مباشر بصيغة APK</span>
-            </div>
-            <div class="action-btns">
-                <a href="https://deltaexploits.gg/delta-executor-ios" class="download-btn" download target="_blank">تحميل مباشر</a>
-                <a href="delta://" class="open-btn">فتح</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- صفحة الكمبيوتر (PC) -->
-    <div id="pc-page" class="sub-page">
-        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
-        <h2>تطبيقات وأدوات الكمبيوتر (PC)</h2>
-        
-        <div class="hack-item">
-            <div class="hack-info">
-                <h4>MuMu Player</h4>
-                <span>محاكي قوي وسريع لتشغيل تطبيقات وألعاب الهاتف على البي سي</span>
-            </div>
-            <div class="action-btns">
-                <a href="https://www.mumuplayer.com/" class="download-btn" target="_blank">رابط التحميل</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- صفحة الإضافات -->
-    <div id="extra-page" class="sub-page">
-        <button class="back-btn" onclick="showPage('home-page')">← رجوع للرئيسية</button>
-        <h2>قريباً</h2>
-        <div class="hack-item">
-            <div class="hack-info">
-                <h4>قيد الإعداد</h4>
-                <span>انتظرونا بإضافات جديدة وحصرية من عمار</span>
+                <a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/ammar-mars/delta/main/manifest.plist" class="download-btn">تثبيت مباشر</a>
             </div>
         </div>
     </div>
 
     <footer>
-        جميع الحقوق محفوظة © 2026 - MARS SYSTEM | تم البرمجة بواسطة **عمار**
+        جميع الحقوق محفوظة © 2026 - MARS SYSTEM | تم البرمجة بواسطة عمار
     </footer>
 
     <script>
         function showPage(pageId) {
             document.getElementById('home-page').style.display = 'none';
             document.getElementById('ios-page').style.display = 'none';
-            document.getElementById('android-page').style.display = 'none';
-            document.getElementById('pc-page').style.display = 'none';
-            document.getElementById('extra-page').style.display = 'none';
-
             document.getElementById(pageId).style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function installAppMsg() {
-            alert("لتثبيت الموقع كتطبيق على شاشتك الرئيسية:\n- الآيفون (Safari): اضغط مشاركة ثم 'إضافة إلى الصفحة الرئيسية'.\n- الأندرويد (Chrome): اضغط القائمة ثم 'إضافة إلى الشاشة الرئيسية'.");
         }
     </script>
 
